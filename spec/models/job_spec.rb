@@ -30,7 +30,38 @@ RSpec.describe Job, type: :model do
         expect(job).to be_recent
       end
     end
-
   end
+
+  describe "#expired?" do
+
+    context "created today" do
+      it "is not expired" do
+        job = create_job
+        expect(job).not_to be_expired
+      end
+    end
+
+    context "created 91 days ago" do
+      it "is expired" do
+        job = nil
+        travel_to 91.days.ago do
+          job = create_job
+        end
+        expect(job).to be_expired
+      end
+    end
+
+    context "created 89 days ago" do
+      it "is not expired" do
+        job = nil
+        travel_to 89.days.ago do
+          job = create_job
+        end
+        expect(job).not_to be_expired
+      end
+    end
+  end
+
+
 
 end
