@@ -1,10 +1,10 @@
 <h1>Emprego Já</h1>
 
-<% if user_signed_in? %>
-  <p><%= 'Bem-vindo(a), ' + current_user.username %><p>
-<% else %>
-  <p><%= link_to 'Cadastrar', new_user_registration_path %>  <%= link_to 'Entrar', new_user_session_path %> </p>
-<% end %>
-
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
+<% if user_signed_in? %>
+  <p><%= 'Bem-vindo(a), ' + current_user.username %>  |  <%= link_to 'Sair', destroy_user_session_path, method: 'delete' %><p>
+<% else %>
+  <p><%= link_to 'Cadastrar', new_user_registration_path %>  |  <%= link_to 'Entrar', new_user_session_path %> </p>
+<% end %>
