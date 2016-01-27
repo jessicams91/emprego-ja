@@ -6,17 +6,23 @@ module ModelsMacros
                    mail: 'contato@campuscode.com.br')
   end
 
-  def create_category
-    Category.create(name: 'Desenvolvedor')
+  def create_category(attrs = {})
+    Category.create({name: 'Desenvolvedor'}.merge(attrs))
   end
 
-  def create_job(company = nil, category = nil)
+  def create_job_type
+    job_type = JobType.create(name: 'CLT')
+  end
+
+  def create_job(company = nil, category = nil, job_type = nil)
     company ||= create_company
     category ||= create_category
+    job_type ||= create_job_type
     company.jobs.create(title: 'Desenvolvedor Rails',
                description: 'Desenvolvedor Full Stack Rails',
                location: 'São Paulo - SP',
-               category: category)
+               category: category,
+               job_type: job_type)
   end
 
   def sign_in
@@ -34,7 +40,7 @@ module ModelsMacros
     fill_in 'Senha',                  with: user.password
 
     click_button 'Entrar'
-    
+
   end
 
 

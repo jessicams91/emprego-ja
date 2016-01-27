@@ -13,8 +13,19 @@ company = Company.create(name:     'Campus Code',
 
 category = Category.create(name: 'Desenvolvedor')
 
+job_type = JobType.create(name: 'CLT')
+
+JobType.create(name: 'PJ')
+JobType.create(name: 'Freelancer')
+
 job = Job.create(title: 'Vaga de Dev',
                  description: 'Dev Junior Rails com ao menos um projeto',
                  location: 'São Paulo',
                  company: company,
-                 category: category)
+                 category: category,
+                 job_type: job_type)
+
+User.create(username:                'John Doe',
+            email:                   'johndoe@yahoo.com.br',
+            password:                'senhabruta',
+            password_confirmation:   'senhabruta')

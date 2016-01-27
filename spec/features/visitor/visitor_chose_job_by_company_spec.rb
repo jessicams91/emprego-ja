@@ -9,11 +9,14 @@ feature 'Visitor choose jobs by company' do
 
     category = Category.create(name: 'Desenvolvedor')
 
+    job_type = JobType.create(name: 'CLT')
+
     job = Job.create(title:       'Vaga de Dev',
                      category:    category,
                      description: 'Dev Junior Rails com ao menos um projeto',
                      location:    'São Paulo',
-                     company:  company)
+                     company:  company,
+                     job_type: job_type)
     visit root_path
 
     click_on company.name
@@ -22,6 +25,7 @@ feature 'Visitor choose jobs by company' do
     expect(page).to have_content job.title
     expect(page).to have_content job.category.name
     expect(page).to have_content job.description
+    expect(page).to have_content job.job_type.name
     expect(page).to have_content job.location
   end
 
@@ -38,11 +42,14 @@ feature 'Visitor choose jobs by company' do
 
     category = Category.create(name: 'Desenvolvedor')
 
+    job_type = JobType.create(name: 'CLT')
+
     job = Job.create(title:       'Vaga de Dev',
                      category:    category,
                      description: 'Dev Junior Rails com ao menos um projeto',
                      location:    'São Paulo',
-                     company:  company)
+                     company:  company,
+                     job_type: job_type)
 
     visit root_path
 
@@ -52,6 +59,7 @@ feature 'Visitor choose jobs by company' do
     expect(page).not_to have_content job.title
     expect(page).not_to have_content job.category.name
     expect(page).not_to have_content job.description
+    expect(page).not_to have_content job.job_type.name
     expect(page).not_to have_content job.location
   end
 

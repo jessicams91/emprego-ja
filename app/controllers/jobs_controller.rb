@@ -35,6 +35,7 @@ class JobsController < ApplicationController
   def set_collections
     @categories = Category.all
     @companies = Company.all
+    @job_types = JobType.all
   end
 
   def set_job
@@ -44,6 +45,6 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job)
       .permit(:title, :location, :category_id, :description, :featured,
-             :company_id)
+             :company_id, :job_type_id)
   end
 end

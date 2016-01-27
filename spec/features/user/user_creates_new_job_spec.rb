@@ -6,15 +6,18 @@ feature 'User creates a new job' do
     sign_in
 
     company = Company.create(name: 'Campus Code',
-                            location: 'São Paulo',
-                            mail: 'contato@campus.com.br',
-                            phone: '2369-3476')
+                             location: 'São Paulo',
+                             mail: 'contato@campus.com.br',
+                             phone: '2369-3476')
 
     category = Category.create(name: 'Desenvolvedor')
+
+    job_type = JobType.create(name: 'CLT')
 
     job = Job.new(title: 'Dev Master',
                   location: 'Rio de Janeiro',
                   category: category,
+                  job_type: job_type,
                   description: 'Vaga para Dev Master para Bootcamp Rails')
 
     visit new_job_path
@@ -23,6 +26,7 @@ feature 'User creates a new job' do
     fill_in 'Location',    with: job.location
     select category.name,  from: 'Category'
     select company.name,   from: 'Company'
+    select job_type.name,  from: 'Job type'
     fill_in 'Description', with: job.description
 
     click_on 'Criar Vaga'
@@ -31,6 +35,7 @@ feature 'User creates a new job' do
     expect(page).to have_content job.location
     expect(page).to have_content job.category.name
     expect(page).to have_content company.name
+    expect(page).to have_content job_type.name
     expect(page).to have_content job.description
   end
 
@@ -45,15 +50,20 @@ feature 'User creates a new job' do
 
     category = Category.create(name: 'Desenvolvedor')
 
+    job_type = JobType.create(name: 'CLT')
+
     job = Job.new(title:    'Dev Master',
                   location: 'Rio de Janeiro',
                   category: category,
+                  job_type: job_type,
                   description: 'Vaga para Dev Master para o Bootcamp Rails')
+
     visit new_job_path
     fill_in 'Title',       with: job.title
     fill_in 'Location',    with: job.location
     select category.name,  from: 'Category'
     select company.name,   from: 'Company'
+    select job_type.name,  from: 'Job type'
     fill_in 'Description', with: job.description
     check   'Featured'
 
@@ -63,6 +73,7 @@ feature 'User creates a new job' do
     expect(page).to have_content job.location
     expect(page).to have_content job.category.name
     expect(page).to have_content company.name
+    expect(page).to have_content job_type.name
     expect(page).to have_content job.description
     expect(page).to have_content 'Vaga em Destaque'
   end
@@ -73,7 +84,7 @@ feature 'User creates a new job' do
 
     click_on 'Criar Vaga'
 
-    ['Title', 'Category', 'Description', 'Location'].each do |field|
+    ['Title', 'Category', 'Description', 'Location', 'Job type'].each do |field|
       expect(page).to have_content "#{field} can\'t be blank"
     end
   end

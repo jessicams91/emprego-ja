@@ -13,17 +13,21 @@ feature 'Visitor visits Emprego Ja home page' do
 
     category = Category.create(name: 'Desenvolvedor')
 
+    job_type = JobType.create(name: 'CLT')
+
     Job.create(title: 'Vaga de Dev',
                category: category,
                description: 'Dev Junior Rails com ao menos um projeto',
                company: company,
-               location: 'São Paulo')
+               location: 'São Paulo',
+               job_type: job_type)
 
     Job.create(title: 'Vaga de QA',
                category: category,
                company: company,
                description: 'QA Junior com ao menos um projeto',
-               location: 'São Paulo')
+               location: 'São Paulo',
+               job_type: job_type)
 
     visit root_path
 
@@ -31,6 +35,7 @@ feature 'Visitor visits Emprego Ja home page' do
     expect(page).to have_content('Campus Code')
     expect(page).to have_content('Desenvolvedor')
     expect(page).to have_content('São Paulo')
+    expect(page).to have_content('CLT')
     expect(page).to have_content('Vaga de QA')
   end
 end
