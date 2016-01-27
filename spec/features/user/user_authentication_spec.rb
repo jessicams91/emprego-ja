@@ -21,3 +21,24 @@ feature 'User signs up' do
     expect(page).to have_content 'Bem-vindo(a), ' + user.username
   end
 end
+
+
+feature 'User signs in' do
+  scenario 'successfully' do
+    user = User.create(username:                'John Doe',
+                       email:                   'johndoe@yahoo.com.br',
+                       password:                'senhabruta',
+                       password_confirmation:   'senhabruta')
+
+    visit root_path
+
+    click_on 'Entrar'
+
+    fill_in 'Email',                  with: user.email
+    fill_in 'Senha',                  with: user.password
+
+    click_button 'Entrar'
+
+    expect(page).to have_content 'Bem-vindo(a), ' + user.username
+  end
+end
