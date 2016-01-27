@@ -18,4 +18,24 @@ module ModelsMacros
                location: 'São Paulo - SP',
                category: category)
   end
+
+  def sign_in
+
+    user = User.create(username:                'John Doe',
+                       email:                   'johndoe@yahoo.com.br',
+                       password:                'senhabruta',
+                       password_confirmation:   'senhabruta')
+
+    visit root_path
+
+    click_on 'Entrar'
+
+    fill_in 'Email',                  with: user.email
+    fill_in 'Senha',                  with: user.password
+
+    click_button 'Entrar'
+    
+  end
+
+
 end

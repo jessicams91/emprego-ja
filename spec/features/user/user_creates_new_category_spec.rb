@@ -3,6 +3,9 @@ require 'rails_helper'
 feature 'User creates a new category' do
 
   scenario 'successfully' do
+
+    sign_in
+
     category = Category.new(name: 'Desenvolvedor')
 
     visit new_category_path
@@ -14,6 +17,9 @@ feature 'User creates a new category' do
   end
 
   scenario 'invalid' do
+
+    sign_in
+    
     visit new_category_path
     click_on 'Criar Categoria'
 
