@@ -1,0 +1,10 @@
+<h1>Emprego Já</h1>
+
+<% if user_signed_in? %>
+  <p><%= 'Bem-vindo(a), ' + current_user.username %><p>
+<% else %>
+  <p><%= link_to 'Cadastrar', new_user_registration_path %>
+<% end %>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
