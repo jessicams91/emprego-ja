@@ -3,20 +3,21 @@ require 'rails_helper'
 feature 'User edits a company' do
   scenario 'successfully' do
 
-    user = User.create(username:                'John Doe',
-                       email:                   'johndoe@yahoo.com.br',
-                       password:                'senhabruta',
-                       password_confirmation:   'senhabruta')
-
     sign_in
 
-    company = Company.create(name:     'Campus Code',
-                             location: 'São Paulo',
-                             phone:    '2369-3476',
-                             mail:     'contato@campuscode.com.br',
-                             user:      user)
+    visit new_company_path
 
-    visit root_path
+    company = Company.new(name:     'Campus Code',
+                          location: 'São Paulo',
+                          mail:     'contato@campuscode.com.br',
+                          phone:    '2369-3476')
+
+    fill_in 'Name',     with: company.name
+    fill_in 'Location', with: company.location
+    fill_in 'Mail',     with: company.mail
+    fill_in 'Phone',    with: company.phone
+
+    click_on 'Criar Empresa'
 
     click_on 'Editar Empresa'
 
@@ -40,27 +41,30 @@ feature 'User edits a company' do
                              phone:    '2369-3476',
                              mail:     'contato@campuscode.com.br')
 
-    visit root_path
+    visit company_path(company)
 
-    click_on 'Editar Empresa'
-
-    expect(page).to have_button 'Entrar'
+    expect(page).not_to have_content 'Editar Empresa'
   end
 
   scenario 'unless it is a company of their own' do
 
     sign_in
 
-    company = Company.create(name:     'Campus Code',
-                             location: 'São Paulo',
-                             phone:    '2369-3476',
-                             mail:     'contato@campuscode.com.br')
+    visit new_company_path
 
-    visit root_path
+    company = Company.new(name:     'Campus Code',
+                          location: 'São Paulo',
+                          mail:     'contato@campuscode.com.br',
+                          phone:    '2369-3476')
 
-    click_on 'Editar Empresa'
+    fill_in 'Name',     with: company.name
+    fill_in 'Location', with: company.location
+    fill_in 'Mail',     with: company.mail
+    fill_in 'Phone',    with: company.phone
 
-    expect(page).to have_content company.name
+    click_on 'Criar Empresa'
+
+    expect(page).to have_link 'Editar Empresa'
 
     click_on 'Sair'
 
@@ -78,8 +82,10 @@ feature 'User edits a company' do
 
     click_button 'Entrar'
 
-    click_on 'Editar Empresa'
+    visit root_path
 
-    expect(page).not_to have_content company.name
+    click_on company.name
+
+    expect(page).not_to have_link 'Editar Empresa'
   end
 end

@@ -4,4 +4,8 @@
 <p><strong>E-mail: </strong><%= @company.mail %></p>
 <p><strong>Telefone: </strong><%= @company.phone %></p>
 
+<% if @user_companies.include? @company %>
+  <p><%= link_to 'Editar Empresa', edit_company_path(@company) %></p>
+<% end %>
+
 <%= render @company.jobs %>

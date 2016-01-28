@@ -8,6 +8,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
+    @company.user_id = current_user.id
     if @company.save
       redirect_to @company
     else
@@ -29,6 +30,11 @@ class CompaniesController < ApplicationController
   end
 
   def show
+    if current_user
+      @user_companies = Company.where(user_id: current_user.id)
+    else
+      @user_companies = []
+    end
   end
 
   private

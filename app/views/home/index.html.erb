@@ -22,20 +22,20 @@
 <aside>
   <h4>Empresas</h4>
   <% @companies.each do |company| %>
-    <%= link_to company.name, company %>
+    <p><%= link_to company.name, company %></p>
   <% end %>
 </aside>
 <hr>
 <aside>
   <h4>Categorias</h4>
   <% @categories.each do |category| %>
-    <%= link_to category.name, category %>
+    <p><%= link_to category.name, category %></p>
   <% end %>
 </aside>
 <hr>
 <aside>
 <h4>Tipos de Contratação</h4>
 <% @job_types.each do |jobtype| %>
-  <%= link_to jobtype.name, jobtype %>
+  <p><%= link_to jobtype.name, jobtype %></p>
 <% end %>
 </aside>
