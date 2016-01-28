@@ -1,6 +1,6 @@
-<h1><%= @category.name %></h1>
+<h1><%= @job_type.name %></h1>
 <h2>Vagas</h2>
-<% @category.jobs.each do |job| %>
+<% @job_type.jobs.each do |job| %>
   <p><%= job.title %></p>
   <p><%= job.location %></p>
   <p><%= job.category.name %></p>
