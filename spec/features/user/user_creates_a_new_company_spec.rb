@@ -6,12 +6,14 @@ feature 'User creates a new company' do
 
     sign_in
 
+    visit root_path
+
+    click_on 'Criar Empresa'
+
     company = Company.new(name:     'Campus Code',
                           location: 'São Paulo',
                           mail:     'contato@campuscode.com.br',
                           phone:    '2369-3476')
-
-    visit new_company_path
 
     fill_in 'Name',     with: company.name
     fill_in 'Location', with: company.location
@@ -27,12 +29,16 @@ feature 'User creates a new company' do
   end
 
   scenario 'invalid' do
-    
+
     sign_in
-    visit new_company_path
+
+    visit root_path
+
+    click_on 'Criar Empresa'
 
     click_on 'Criar Empresa'
 
     expect(page).to have_content "Warning! All fields are mandatory."
+
   end
 end
