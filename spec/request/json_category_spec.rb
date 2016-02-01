@@ -8,5 +8,6 @@ describe "Category responds", :type => :request do
     json = JSON.parse(response.body)
 
     expect(response).to be_success
+    expect(json['name']).to eq(category.name)
   end
 end
