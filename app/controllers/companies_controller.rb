@@ -7,26 +7,18 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
-    @company.user_id = current_user.id
-    if @company.save
-      redirect_to @company
-    else
-      flash[:warning] = 'Warning! All fields are mandatory.'
-      render :new
-    end
+    @company = Company.create(company_params)
+    @company.user = current_user
+    respond_with @company
   end
 
   def edit
+    respond_with @company
   end
 
   def update
-    if @company.update(company_params)
-      redirect_to @company
-    else
-      flash[:warning] = 'Warning! All fields are mandatory.'
-      render :edit
-    end
+    @company.update(company_params)
+    respond_with @company
   end
 
   def show

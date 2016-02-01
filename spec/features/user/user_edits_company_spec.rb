@@ -5,21 +5,9 @@ feature 'User edits a company' do
 
     sign_in
 
-    visit new_company_path
+    company = create_company
 
-    company = Company.new(name:     'Campus Code',
-                          location: 'São Paulo',
-                          mail:     'contato@campuscode.com.br',
-                          phone:    '2369-3476')
-
-    fill_in 'Name',     with: company.name
-    fill_in 'Location', with: company.location
-    fill_in 'Mail',     with: company.mail
-    fill_in 'Phone',    with: company.phone
-
-    click_on 'Criar Empresa'
-
-    click_on 'Editar Empresa'
+    visit edit_company_path(company)
 
     fill_in 'Name',     with: 'Code Campus'
     fill_in 'Location', with: 'Recife'
@@ -63,8 +51,6 @@ feature 'User edits a company' do
     fill_in 'Phone',    with: company.phone
 
     click_on 'Criar Empresa'
-
-    expect(page).to have_link 'Editar Empresa'
 
     click_on 'Sair'
 

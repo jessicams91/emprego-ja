@@ -35,7 +35,7 @@ feature 'User creates a new company' do
 
     click_on 'Criar Empresa'
 
-    expect(page).to have_content "Warning! All fields are mandatory."
+    expect(page).to have_content "Company could not be created."
 
   end
 end

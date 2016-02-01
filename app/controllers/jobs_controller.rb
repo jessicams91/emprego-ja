@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def show
+    respond_with @job
   end
 
   def new
@@ -11,23 +12,17 @@ class JobsController < ApplicationController
   end
 
   def edit
+    respond_with @job
   end
 
   def update
-    if @job.update(job_params)
-      redirect_to @job
-    else
-      render :edit
-    end
+    @job.update(job_params)
+    respond_with @job
   end
 
   def create
-    @job = Job.new(job_params)
-    if @job.save
-      redirect_to @job
-    else
-      render :new
-    end
+    @job = Job.create(job_params)
+    respond_with @job
   end
 
   private

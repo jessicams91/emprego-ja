@@ -19,10 +19,10 @@ feature 'User creates a new category' do
   scenario 'invalid' do
 
     sign_in
-    
+
     visit new_category_path
     click_on 'Criar Categoria'
 
-    expect(page).to have_content "Warning! All fields are mandatory."
+    expect(page).to have_content "Category could not be created."
   end
 end
