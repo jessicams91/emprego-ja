@@ -17,7 +17,6 @@ feature 'User creates a new company' do
     fill_in 'Location', with: company.location
     fill_in 'Mail',     with: company.mail
     fill_in 'Phone',    with: company.phone
-
     click_on 'Criar Empresa'
 
     expect(page).to have_content company.name
