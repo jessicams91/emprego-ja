@@ -6,9 +6,7 @@ feature 'User creates a new company' do
 
     sign_in
 
-    visit root_path
-
-    click_on 'Criar Empresa'
+    visit new_company_path
 
     company = Company.new(name:     'Campus Code',
                           location: 'São Paulo',
@@ -32,9 +30,8 @@ feature 'User creates a new company' do
 
     sign_in
 
-    visit root_path
+    visit new_company_path
 
-    click_on 'Criar Empresa'
 
     click_on 'Criar Empresa'
 
