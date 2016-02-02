@@ -2,9 +2,14 @@ module Api
   class JobsController < ApplicationController
     before_action :set_collections, only: [:new, :create, :edit]
     before_action :set_job, only: [:edit, :show, :update]
-    before_action :authenticate_user!, except: [:show]
+    before_action :authenticate_user!, except: [:index, :show]
     respond_to :json
-    
+
+    def index
+      @job = Job.all
+      respond_with @job
+    end
+
     def show
       respond_with @job
     end

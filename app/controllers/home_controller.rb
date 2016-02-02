@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  respond_to :html
   def index
     @jobs = Job.all
     @companies = Company.all
