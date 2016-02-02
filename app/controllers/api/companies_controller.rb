@@ -16,11 +16,5 @@ module Api
       @company = Company.find(params[:id]).jobs
       respond_with @company
     end
-
-    private
-
-    def company_params
-      params.require(:company).permit(:name, :location, :mail, :phone)
-    end
   end
 end

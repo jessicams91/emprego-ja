@@ -6,7 +6,6 @@ describe "json shows jobs for companies", :type => :request do
     job = create_job(company: company)
     job2 = create_job(title: 'TESTER', company: company)
 
-
     get '/api/companies/1/jobs'
 
     json = JSON.parse(response.body)
