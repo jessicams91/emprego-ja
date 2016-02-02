@@ -27,5 +27,14 @@ describe "Company responds", :type => :request do
     expect(json.collect{|l| l['name']}).to include(company.name)
     expect(json.collect{|l| l['name']}).to include(company2.name)
     expect(json.collect{|l| l['name']}).to include(company3.name)
+    expect(json.collect{|l| l['location']}).to include(company.location)
+    expect(json.collect{|l| l['location']}).to include(company2.location)
+    expect(json.collect{|l| l['location']}).to include(company3.location)
+    expect(json.collect{|l| l['phone']}).to include(company.phone)
+    expect(json.collect{|l| l['phone']}).to include(company2.phone)
+    expect(json.collect{|l| l['phone']}).to include(company3.phone)
+    expect(json.collect{|l| l['mail']}).to include(company.mail)
+    expect(json.collect{|l| l['mail']}).to include(company2.mail)
+    expect(json.collect{|l| l['mail']}).to include(company3.mail)
   end
 end
