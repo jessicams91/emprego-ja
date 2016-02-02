@@ -1,6 +1,7 @@
 module ModelsMacros
-  def create_company
-    Company.create(name: 'Campus Code',
+  def create_company(name: nil)
+    name ||= "Campus Code"
+    Company.create(name: name,
                    location: 'São Paulo',
                    phone: '11 2369 3476',
                    mail: 'contato@campuscode.com.br')

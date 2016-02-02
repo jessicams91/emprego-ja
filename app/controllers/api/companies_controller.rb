@@ -1,8 +1,13 @@
 module Api
   class CompaniesController < ApplicationController
     before_action :set_company, only: [:edit, :update, :show]
-    before_action :authenticate_user!, except: [:show]
+    before_action :authenticate_user!, except: [:index, :show]
     respond_to :json
+    def index
+      @company = Company.all
+      respond_with @company
+    end
+
     def new
       @company = Company.new
     end
