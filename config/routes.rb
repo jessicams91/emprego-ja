@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     resources :jobs, only: [:index, :show]
-    resources :companies, only: [:index, :show]
+    resources :companies, only: [:index, :show, :jobs] do
+      member do
+        get 'jobs'
+      end
+    end
     resources :categories, only: [:index, :show]
   end
 end
