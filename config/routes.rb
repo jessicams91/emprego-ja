@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :job_types, only: [:show]
 
   namespace :api, defaults: { format: 'json' } do
-    resources :jobs, only: [:index, :show]
+    resources :jobs, only: [:index, :show, :companies, :categories]
     resources :companies, only: [:index, :show, :jobs] do
       member do
         get 'jobs'

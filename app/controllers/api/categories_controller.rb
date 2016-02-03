@@ -10,6 +10,5 @@ module Api
       @category = Category.find(params[:id])
       respond_with @category
     end
-
   end
 end
