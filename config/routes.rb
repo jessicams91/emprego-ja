@@ -14,6 +14,10 @@ Rails.application.routes.draw do
         get 'jobs'
       end
     end
-    resources :categories, only: [:index, :show]
+    resources :categories, only: [:index, :show] do
+      member do
+        get 'jobs'
+      end
+    end
   end
 end
