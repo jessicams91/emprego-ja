@@ -9,7 +9,8 @@ module Api
 
     def show
       @job = Job.find(params[:id])
-      respond_with @job
+      job_decorated = JobDecorator.new(@job)
+      respond_with job_decorated
     end
   end
 end

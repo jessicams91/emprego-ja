@@ -4,42 +4,41 @@ describe "json shows paths", :type => :request do
   scenario 'to jobs from company' do
     company = create_company
 
-    company_json = CompanyDecorator.new(company).to_json
-    json = JSON.parse(company_json)
+    get "/api/companies/#{company.id}"
+    json = JSON.parse(response.body)
 
-    expect(json['name']).to include(company.name)
+    expect(response).to be_success
     expect(json['jobs_path']).to include("api/companies/#{company.id}/jobs")
   end
+
   scenario 'to jobs from category' do
     category = create_category
 
-    category_json = CategoryDecorator.new(category).to_json
-    json = JSON.parse(category_json)
-
-    expect(json['name']).to include(category.name)
+    get "/api/categories/#{category.id}"
+    json = JSON.parse(response.body)
+    expect(response).to be_success
     expect(json['jobs_path']).to include("api/categories/#{category.id}/jobs")
   end
 
-  scenario 'to categories' do
+  scenario 'to categories from jobs' do
     category = create_category
     job = create_job(category: category)
 
-    job_json = JobDecorator.new(job).to_json
-    json = JSON.parse(job_json)
-
-    expect(json['title']).to include(job.title)
+    get "/api/jobs/#{job.id}"
+    json = JSON.parse(response.body)
+    expect(response).to be_success
     expect(json['category_path']).to include("api/categories/#{category.id}")
     expect(json).to_not include("category_id")
   end
 
-  scenario 'to companies' do
+  scenario 'to companies from jobs' do
     company = create_company
     job = create_job(company: company)
 
-    job_json = JobDecorator.new(job).to_json
-    json = JSON.parse(job_json)
+    get "/api/jobs/#{job.id}"
+    json = JSON.parse(response.body)
 
-    expect(json['title']).to include(job.title)
+    expect(response).to be_success
     expect(json['company_path']).to include("api/companies/#{company.id}")
     expect(json).to_not include("company_id}")
   end

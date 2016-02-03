@@ -15,13 +15,16 @@ module ModelsMacros
     job_type = JobType.create(name: 'CLT')
   end
 
-  def create_job(title: nil, company: nil, category: nil, job_type: nil)
+  def create_job(title: nil, company: nil, category: nil, job_type: nil, location: nil, description: nil)
     company ||= create_company
     category ||= create_category
     job_type ||= create_job_type
-    company.jobs.create(title: 'Desenvolvedor Rails',
-               description: 'Desenvolvedor Full Stack Rails',
-               location: 'São Paulo - SP',
+    location ||= "São Paulo"
+    description ||= "Desenvolvedor Full Stack Rails"
+    title ||= "Desenvolvedor Rails"
+    company.jobs.create(title: title,
+               description: description,
+               location: location,
                category: category,
                job_type: job_type)
   end

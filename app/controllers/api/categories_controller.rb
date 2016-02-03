@@ -13,7 +13,8 @@ module Api
 
     def show
       @category = Category.find(params[:id])
-      respond_with @category
+      category_decorated = CategoryDecorator.new(@category)
+      respond_with category_decorated
     end
   end
 end
