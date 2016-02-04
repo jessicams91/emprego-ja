@@ -14,7 +14,6 @@ feature 'Visitor must be authenticated' do
     expect(page).not_to have_button 'Entrar'
   end
 
-
   scenario "except to see category's page" do
     category = create_category
 
@@ -25,11 +24,7 @@ feature 'Visitor must be authenticated' do
     expect(page).not_to have_button 'Entrar'
   end
 
-
   scenario "except to see job's page" do
-
-    company = create_company
-    category = create_category
     job = create_job
 
     visit new_job_path
@@ -41,5 +36,4 @@ feature 'Visitor must be authenticated' do
     visit job_path(job)
     expect(page).not_to have_button 'Entrar'
   end
-
 end

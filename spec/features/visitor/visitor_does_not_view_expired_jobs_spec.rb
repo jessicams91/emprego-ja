@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Visitor does not view expired jobs' do
   scenario 'successfully' do
     travel_to 100.days.ago do
-      job = create_job
+      create_job
     end
 
     job = Job.first
@@ -15,15 +15,13 @@ feature 'Visitor does not view expired jobs' do
 
   scenario "and sees a warning message at the job's page" do
     travel_to 100.days.ago do
-      job = create_job
+      create_job
     end
 
     job = Job.first
 
     visit job_path(job)
 
-    expect(page).to have_content "Vaga Expirada"
-
+    expect(page).to have_content 'Vaga Expirada'
   end
-
 end

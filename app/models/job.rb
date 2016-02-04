@@ -5,7 +5,8 @@ class Job < ActiveRecord::Base
   belongs_to :category
   belongs_to :job_type
 
-  validates :title, :category, :description, :location, :job_type, presence: true
+  validates :title, :category, :description, :location,
+            :job_type, presence: true
 
   def recent?
     Time.zone.now < (created_at + DAYS_TO_BE_RECENT)

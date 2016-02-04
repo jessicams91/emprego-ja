@@ -1,13 +1,9 @@
 require 'rails_helper'
 
 feature 'User creates a new company' do
-
   scenario 'successfully' do
-
     sign_in
-
     visit new_company_path
-
     company = Company.new(name:     'Campus Code',
                           location: 'São Paulo',
                           mail:     'contato@campuscode.com.br',
@@ -26,15 +22,10 @@ feature 'User creates a new company' do
   end
 
   scenario 'invalid' do
-
     sign_in
-
     visit new_company_path
-
-
     click_on 'Criar Empresa'
 
-    expect(page).to have_content "Company could not be created."
-
+    expect(page).to have_content 'Company could not be created.'
   end
 end

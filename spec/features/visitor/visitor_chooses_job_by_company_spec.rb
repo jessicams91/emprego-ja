@@ -15,8 +15,8 @@ feature 'Visitor choose jobs by company' do
                      category:    category,
                      description: 'Dev Junior Rails com ao menos um projeto',
                      location:    'São Paulo',
-                     company:  company,
-                     job_type: job_type)
+                     company:     company,
+                     job_type:    job_type)
     visit root_path
 
     click_on company.name
@@ -48,8 +48,8 @@ feature 'Visitor choose jobs by company' do
                      category:    category,
                      description: 'Dev Junior Rails com ao menos um projeto',
                      location:    'São Paulo',
-                     company:  company,
-                     job_type: job_type)
+                     company:     company,
+                     job_type:    job_type)
 
     visit root_path
 
@@ -62,5 +62,4 @@ feature 'Visitor choose jobs by company' do
     expect(page).not_to have_content job.job_type.name
     expect(page).not_to have_content job.location
   end
-
 end

@@ -11,19 +11,19 @@ feature 'Visitor chooses jobs by category' do
 
     job_type = JobType.create(name: 'CLT')
 
-    job = Job.create(title: 'Vaga de Dev',
-               description: 'Dev Junior Rails com ao menos um projeto',
-               location: 'São Paulo',
-               company: company,
-               category: category,
-               job_type: job_type)
+    job = Job.create(title:       'Vaga de Dev',
+                     description: 'Dev Junior Rails com ao menos um projeto',
+                     location:    'São Paulo',
+                     company:     company,
+                     category:    category,
+                     job_type:    job_type)
 
-    job_2 = Job.create(title: 'Vaga de Dev',
+    job_2 = Job.create(title:       'Vaga de Dev',
                        description: 'Dev Junior Rails com ao menos um projeto',
-                       location: 'São Paulo',
-                       company: company,
-                       category: category,
-                       job_type: job_type)
+                       location:    'São Paulo',
+                       company:     company,
+                       category:    category,
+                       job_type:    job_type)
     visit root_path
 
     click_on category.name
@@ -74,5 +74,4 @@ feature 'Visitor chooses jobs by category' do
     expect(page).not_to have_content job.location
     expect(page).not_to have_content job.job_type.name
   end
-
 end

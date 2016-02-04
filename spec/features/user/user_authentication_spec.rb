@@ -22,7 +22,6 @@ feature 'User signs up' do
   end
 end
 
-
 feature 'User signs in' do
   scenario 'successfully' do
     user = User.create(username:                'John Doe',
@@ -42,7 +41,6 @@ feature 'User signs in' do
     expect(page).to have_content 'Bem-vindo(a), ' + user.username
   end
 end
-
 
 feature 'User logs out' do
   scenario 'successfully' do

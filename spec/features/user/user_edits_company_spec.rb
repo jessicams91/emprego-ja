@@ -2,11 +2,8 @@ require 'rails_helper'
 
 feature 'User edits a company' do
   scenario 'successfully' do
-
     sign_in
-
     company = create_company
-
     visit edit_company_path(company)
 
     fill_in 'Name',     with: 'Code Campus'
@@ -23,7 +20,6 @@ feature 'User edits a company' do
   end
 
   scenario 'unless logged in' do
-
     company = Company.create(name:     'Campus Code',
                              location: 'São Paulo',
                              phone:    '2369-3476',
@@ -35,9 +31,7 @@ feature 'User edits a company' do
   end
 
   scenario 'unless it is a company of their own' do
-
     sign_in
-
     visit new_company_path
 
     company = Company.new(name:     'Campus Code',

@@ -23,11 +23,12 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    if current_user
-      @user_companies = Company.where(user_id: current_user.id)
-    else
-      @user_companies = []
-    end
+    @user_companies = if current_user
+                        Company.where(user_id: current_user.id)
+                      else
+                        @user_companies = []
+                      end
+    respond_with @company
   end
 
   private

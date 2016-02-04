@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "json shows paths", :type => :request do
+describe 'json shows paths', type: :request do
   scenario 'to jobs from company' do
     company = create_company
 
@@ -28,7 +28,7 @@ describe "json shows paths", :type => :request do
     json = JSON.parse(response.body)
     expect(response).to be_success
     expect(json['category_path']).to include("api/categories/#{category.id}")
-    expect(json).to_not include("category_id")
+    expect(json).to_not include('category_id')
   end
 
   scenario 'to companies from jobs' do
@@ -40,6 +40,6 @@ describe "json shows paths", :type => :request do
 
     expect(response).to be_success
     expect(json['company_path']).to include("api/companies/#{company.id}")
-    expect(json).to_not include("company_id}")
+    expect(json).to_not include('company_id')
   end
 end

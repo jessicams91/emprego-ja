@@ -2,9 +2,7 @@ require 'rails_helper'
 
 feature 'User creates a new job' do
   scenario 'successfully' do
-
     sign_in
-
     company = Company.create(name: 'Campus Code',
                              location: 'São Paulo',
                              mail: 'contato@campus.com.br',
@@ -40,23 +38,19 @@ feature 'User creates a new job' do
   end
 
   scenario 'featured job' do
-
     sign_in
 
-    company = Company.create(name: 'Campus Code',
-                            location: 'São Paulo',
-                            mail: 'contato@campus.com.br',
-                            phone: '2369-3476')
-
+    company = Company.create(name:     'Campus Code',
+                             location: 'São Paulo',
+                             mail:     'contato@campus.com.br',
+                             phone:    '2369-3476')
     category = Category.create(name: 'Desenvolvedor')
-
-    job_type = JobType.create(name: 'CLT')
-
-    job = Job.new(title:    'Dev Master',
-                  location: 'Rio de Janeiro',
-                  category: category,
-                  job_type: job_type,
-                  description: 'Vaga para Dev Master para o Bootcamp Rails')
+    job_type = JobType.create(name:  'CLT')
+    job = Job.new(title:        'Dev Master',
+                  location:     'Rio de Janeiro',
+                  category:     category,
+                  job_type:     job_type,
+                  description:  'Vaga para Dev Master para o Bootcamp Rails')
 
     visit new_job_path
     fill_in 'Title',       with: job.title

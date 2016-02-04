@@ -1,5 +1,6 @@
 module Api
   class CategoriesController < ApplicationController
+    #
     respond_to :json
     def jobs
       @category = Category.find(params[:id]).jobs
