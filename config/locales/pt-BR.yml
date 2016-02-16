@@ -1,0 +1,13 @@
+pt-BR:
+  home:
+    index:
+      companies: "Empresas"
+      jobs: "Vagas"
+      categories: "Categorias"
+      job_types: "Tipos de Contratação"
+      see_more: "Ver Mais"
+      premium: "Empresa Premium"
+      recent: "Novidades"
+  categories:
+    new:
+      create: 'Criar Categoria'
