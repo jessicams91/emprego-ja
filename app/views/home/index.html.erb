@@ -14,8 +14,7 @@
         <% if job.recent? %>
           <p><em><%= t '.recent' %></em></p>
         <% end %>
-        <% link = t '.see_more'%>
-        <%= link_to link, job %>
+        <%= link_to (t '.see_more'), job %>
       </div>
       <hr>
     <% end %>

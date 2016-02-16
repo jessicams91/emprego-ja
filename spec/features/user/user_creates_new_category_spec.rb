@@ -5,7 +5,7 @@ feature 'User creates a new category' do
     sign_in
     category = Category.new(name: 'Desenvolvedor')
     visit new_category_path
-    fill_in 'Name', with: category.name
+    fill_in 'Nome', with: category.name
     click_on 'Criar Categoria'
 
     expect(page).to have_content category.name

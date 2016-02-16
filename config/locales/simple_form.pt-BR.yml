@@ -2,19 +2,19 @@ pt-BR:
   activerecord:
     attributes:
       job:
-        title: "Título"
+        title: 'Nome'
   helpers:
     submit:
       category:
         create: 'Criar Categoria'
       company:
         create: 'Criar Empresa'
-        edit: 'Atualizar Empresa'
+        update: 'Atualizar Empresa'
       job:
         create: 'Criar Vaga'
-        edit: 'Atualizar Vaga'
+        update: 'Atualizar Vaga'
       job_type:
-        create: 'Criar Tipo de Cotratação'
+        create: 'Criar Tipo de Contratação'
   simple_form:
     'yes': 'Sim'
     'no': 'Não'

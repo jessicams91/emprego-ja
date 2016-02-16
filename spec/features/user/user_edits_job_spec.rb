@@ -30,12 +30,12 @@ feature 'User creates a new job' do
 
     visit edit_job_path(job)
 
-    fill_in 'Title',       with: 'Dev que Master'
-    fill_in 'Location',    with: 'Recife'
+    fill_in 'Nome',       with: 'Dev que Master'
+    fill_in 'Localização',    with: 'Recife'
     select  new_company.name
     select  new_category.name
     select  new_job_type.name
-    fill_in 'Description', with: 'Vaga para Dev que Master para o Quickstart'
+    fill_in 'Descrição', with: 'Vaga para Dev que Master para o Quickstart'
 
     click_on 'Atualizar Vaga'
 
@@ -68,13 +68,13 @@ feature 'User creates a new job' do
 
     visit edit_job_path(job)
 
-    fill_in 'Title',       with: 'Dev que Master'
-    fill_in 'Location',    with: 'Recife'
+    fill_in 'Nome',       with: 'Dev que Master'
+    fill_in 'Localização',    with: 'Recife'
     select  'Campus Code'
     select  'Desenvolvedor'
     select  'CLT'
-    fill_in 'Description', with: 'Vaga para Dev que Master para o Quickstart'
-    check   'Featured'
+    fill_in 'Descrição', with: 'Vaga para Dev que Master para o Quickstart'
+    check   'Destaque'
 
     click_on 'Atualizar Vaga'
 

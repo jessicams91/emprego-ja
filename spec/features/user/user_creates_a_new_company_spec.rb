@@ -9,10 +9,10 @@ feature 'User creates a new company' do
                           mail:     'contato@campuscode.com.br',
                           phone:    '2369-3476')
 
-    fill_in 'Name',     with: company.name
-    fill_in 'Location', with: company.location
-    fill_in 'Mail',     with: company.mail
-    fill_in 'Phone',    with: company.phone
+    fill_in 'Nome',     with: company.name
+    fill_in 'Localização', with: company.location
+    fill_in 'Email',     with: company.mail
+    fill_in 'Telefone',    with: company.phone
     click_on 'Criar Empresa'
 
     expect(page).to have_content company.name

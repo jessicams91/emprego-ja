@@ -6,10 +6,10 @@ feature 'User edits a company' do
     company = create_company
     visit edit_company_path(company)
 
-    fill_in 'Name',     with: 'Code Campus'
-    fill_in 'Location', with: 'Recife'
-    fill_in 'Mail',     with: 'contat@codecampus.com.br'
-    fill_in 'Phone',    with: '1111-5555'
+    fill_in 'Nome',     with: 'Code Campus'
+    fill_in 'Localização', with: 'Recife'
+    fill_in 'Email',     with: 'contat@codecampus.com.br'
+    fill_in 'Telefone',    with: '1111-5555'
 
     click_on 'Atualizar Empresa'
 
@@ -39,10 +39,10 @@ feature 'User edits a company' do
                           mail:     'contato@campuscode.com.br',
                           phone:    '2369-3476')
 
-    fill_in 'Name',     with: company.name
-    fill_in 'Location', with: company.location
-    fill_in 'Mail',     with: company.mail
-    fill_in 'Phone',    with: company.phone
+    fill_in 'Nome',     with: company.name
+    fill_in 'Localização', with: company.location
+    fill_in 'Email',     with: company.mail
+    fill_in 'Telefone',    with: company.phone
 
     click_on 'Criar Empresa'
 

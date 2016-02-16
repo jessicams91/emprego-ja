@@ -20,12 +20,12 @@ feature 'User creates a new job' do
 
     visit new_job_path
 
-    fill_in 'Title',       with: job.title
-    fill_in 'Location',    with: job.location
-    select category.name,  from: 'Category'
-    select company.name,   from: 'Company'
-    select job_type.name,  from: 'Job type'
-    fill_in 'Description', with: job.description
+    fill_in 'Nome',       with: job.title
+    fill_in 'Localização',    with: job.location
+    select category.name,  from: 'Categoria'
+    select company.name,   from: 'Empresa'
+    select job_type.name,  from: 'Tipo de Contratação'
+    fill_in 'Descrição', with: job.description
 
     click_on 'Criar Vaga'
 
@@ -53,13 +53,13 @@ feature 'User creates a new job' do
                   description:  'Vaga para Dev Master para o Bootcamp Rails')
 
     visit new_job_path
-    fill_in 'Title',       with: job.title
-    fill_in 'Location',    with: job.location
-    select category.name,  from: 'Category'
-    select company.name,   from: 'Company'
-    select job_type.name,  from: 'Job type'
-    fill_in 'Description', with: job.description
-    check   'Featured'
+    fill_in 'Nome',       with: job.title
+    fill_in 'Localização',    with: job.location
+    select category.name,  from: 'Categoria'
+    select company.name,   from: 'Empresa'
+    select job_type.name,  from: 'Tipo de Contratação'
+    fill_in 'Descrição', with: job.description
+    check   'Destaque'
 
     click_on 'Criar Vaga'
 
