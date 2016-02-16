@@ -1,5 +1,4 @@
 <h1><%= @job_type.name %></h1>
-<h2>Vagas</h2>
 <% @job_type.jobs.each do |job| %>
   <p><%= job.title %></p>
   <p><%= job.location %></p>

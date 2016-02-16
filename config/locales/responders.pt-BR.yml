@@ -3,7 +3,7 @@ pt-BR:
     actions:
       company:
         create:
-          notice: '%{resource_name} foi criad com sucesso.'
+          notice: '%{resource_name} foi criado com sucesso.'
           alert: '%{resource_name} não pode ser criado.'
         update:
           notice: '%{resource_name} foi atualizado com sucesso.'

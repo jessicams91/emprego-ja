@@ -1,13 +1,33 @@
 pt-BR:
-  home:
-    index:
-      companies: "Empresas"
-      jobs: "Vagas"
-      categories: "Categorias"
-      job_types: "Tipos de Contratação"
-      see_more: "Ver Mais"
-      premium: "Empresa Premium"
-      recent: "Novidades"
+  jobs:
+    new:
+      title: 'Nova Vaga'
+    edit:
+      title: 'Editar Vaga'
+  companies:
+    new:
+      title: 'Nova Empresa'
+    edit:
+      title: 'Editar Empresa'
   categories:
     new:
-      create: 'Criar Categoria'
+      title: 'Nova Categoria'
+    edit:
+      title: 'Editar Categoria'
+  job_types:
+    new:
+      title: 'Novo Tipo de Contratação'
+    edit:
+      title: 'Editar Tipo de Contratação'
+  home:
+    index:
+      companies: 'Empresas'
+      jobs: 'Vagas'
+      categories: 'Categorias'
+      job_types: 'Tipos de Contratação'
+      see_more: 'Ver Mais'
+      premium: 'Empresa Premium'
+      recent: 'Novidades'
+  categories:
+    new:
+      name: 'Criar Categoria'
