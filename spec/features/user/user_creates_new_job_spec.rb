@@ -20,11 +20,11 @@ feature 'User creates a new job' do
 
     visit new_job_path
 
-    fill_in 'Nome',       with: job.title
-    fill_in 'Localização',    with: job.location
-    select category.name,  from: 'Categoria'
-    select company.name,   from: 'Empresa'
-    select job_type.name,  from: 'Tipo de Contratação'
+    fill_in 'Nome', with: job.title
+    fill_in 'Localização', with: job.location
+    select category.name, from: 'Categoria'
+    select company.name, from: 'Empresa'
+    select job_type.name, from: 'Tipo de Contratação'
     fill_in 'Descrição', with: job.description
 
     click_on 'Criar Vaga'
@@ -53,11 +53,11 @@ feature 'User creates a new job' do
                   description:  'Vaga para Dev Master para o Bootcamp Rails')
 
     visit new_job_path
-    fill_in 'Nome',       with: job.title
-    fill_in 'Localização',    with: job.location
-    select category.name,  from: 'Categoria'
-    select company.name,   from: 'Empresa'
-    select job_type.name,  from: 'Tipo de Contratação'
+    fill_in 'Nome', with: job.title
+    fill_in 'Localização', with: job.location
+    select category.name, from: 'Categoria'
+    select company.name, from: 'Empresa'
+    select job_type.name, from: 'Tipo de Contratação'
     fill_in 'Descrição', with: job.description
     check   'Destaque'
 
@@ -78,8 +78,9 @@ feature 'User creates a new job' do
 
     click_on 'Criar Vaga'
 
-    ['Title', 'Category', 'Description', 'Location', 'Job type'].each do |field|
-      expect(page).to have_content "#{field} can\'t be blank"
+    ['Nome', 'Categoria', 'Descrição', 'Localização',
+     'Tipo de Contratação'].each do |field|
+      expect(page).to have_content "#{field} não pode ficar em branco"
     end
   end
 end

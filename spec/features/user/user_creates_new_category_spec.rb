@@ -16,6 +16,6 @@ feature 'User creates a new category' do
     visit new_category_path
     click_on 'Criar Categoria'
 
-    expect(page).to have_content 'Category could not be created.'
+    expect(page).to have_content 'Category não pode ser criado.'
   end
 end

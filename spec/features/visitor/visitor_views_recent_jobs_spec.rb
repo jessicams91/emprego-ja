@@ -20,9 +20,6 @@ feature 'Visitor view recent jobs' do
 
     visit root_path
 
-    # primeira elemento com o css "jobs" da pagina
-    within('.jobs:first-child') do
-      expect(page).to have_content('Novidade')
-    end
+    expect(page).to have_content('Novidade')
   end
 end

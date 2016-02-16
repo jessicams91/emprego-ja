@@ -1,4 +1,27 @@
 pt-BR:
+  activerecord:
+    attributes:
+      job:
+        resource_name: 'Vaga'
+        title: 'Nome'
+        company: 'Empresa'
+        company_id: 'Empresa'
+        category: 'Categoria'
+        category_id: 'Categoria'
+        job_type_id: 'Tipo de Contratação'
+        job_type: 'Tipo de Contratação'
+        featured: 'Destaque'
+        description: 'Descrição'
+        location: 'Localização'
+      company:
+        name: 'Nome'
+        location: 'Localização'
+        mail: 'Email'
+        phone: 'Telefone'
+      job_type:
+        name: 'Nome'
+      category:
+        name: 'Nome'
   jobs:
     new:
       title: 'Nova Vaga'

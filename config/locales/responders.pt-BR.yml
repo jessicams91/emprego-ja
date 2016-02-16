@@ -1,7 +1,6 @@
 pt-BR:
   flash:
     actions:
-      company:
         create:
           notice: '%{resource_name} foi criado com sucesso.'
           alert: '%{resource_name} não pode ser criado.'

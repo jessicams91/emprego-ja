@@ -1,8 +1,4 @@
 pt-BR:
-  activerecord:
-    attributes:
-      job:
-        title: 'Nome'
   helpers:
     submit:
       category:
@@ -20,23 +16,10 @@ pt-BR:
     'no': 'Não'
     required:
       text: 'obrigatório'
-      mark: '*'
-    labels:
-      defaults:
-        name: 'Nome'
-        location: 'Localização'
-      job:
-        # title: 'Nome'
-        company_id: 'Empresa'
-        category_id: 'Categoria'
-        job_type_id: 'Tipo de Contratação'
-        featured: 'Destaque'
-        description: 'Descrição'
-      company:
-        name: 'Nome'
-        mail: 'Email'
-        phone: 'Telefone'
-
+  errors:
+    format: "%{attribute}  %{message}"
+    messages:
+      blank: não pode ficar em branco
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title='required'>*</abbr>'

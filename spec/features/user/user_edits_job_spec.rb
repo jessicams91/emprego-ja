@@ -30,8 +30,8 @@ feature 'User creates a new job' do
 
     visit edit_job_path(job)
 
-    fill_in 'Nome',       with: 'Dev que Master'
-    fill_in 'Localização',    with: 'Recife'
+    fill_in 'Nome', with: 'Dev que Master'
+    fill_in 'Localização', with: 'Recife'
     select  new_company.name
     select  new_category.name
     select  new_job_type.name
@@ -68,8 +68,8 @@ feature 'User creates a new job' do
 
     visit edit_job_path(job)
 
-    fill_in 'Nome',       with: 'Dev que Master'
-    fill_in 'Localização',    with: 'Recife'
+    fill_in 'Nome', with: 'Dev que Master'
+    fill_in 'Localização', with: 'Recife'
     select  'Campus Code'
     select  'Desenvolvedor'
     select  'CLT'

@@ -9,10 +9,10 @@ feature 'User creates a new company' do
                           mail:     'contato@campuscode.com.br',
                           phone:    '2369-3476')
 
-    fill_in 'Nome',     with: company.name
+    fill_in 'Nome', with: company.name
     fill_in 'Localização', with: company.location
-    fill_in 'Email',     with: company.mail
-    fill_in 'Telefone',    with: company.phone
+    fill_in 'Email', with: company.mail
+    fill_in 'Telefone', with: company.phone
     click_on 'Criar Empresa'
 
     expect(page).to have_content company.name
@@ -26,6 +26,6 @@ feature 'User creates a new company' do
     visit new_company_path
     click_on 'Criar Empresa'
 
-    expect(page).to have_content 'Company could not be created.'
+    expect(page).to have_content 'Company não pode ser criado.'
   end
 end
